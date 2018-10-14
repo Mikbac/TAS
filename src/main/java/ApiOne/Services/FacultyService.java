@@ -14,5 +14,5 @@ public interface  FacultyService {
 
     Boolean checkIfExist(Integer id);
 
-
+    Iterable<Faculty> facultiesList(Integer id);
 }

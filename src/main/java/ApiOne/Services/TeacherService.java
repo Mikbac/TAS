@@ -14,5 +14,7 @@ public interface TeacherService {
 
     Boolean checkIfExist(Integer id);
 
+    Iterable<Teacher> teachersList(Integer id);
+
 
 }

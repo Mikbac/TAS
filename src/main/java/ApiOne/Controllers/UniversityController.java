@@ -23,7 +23,7 @@ public class UniversityController {
     }
 
     @RequestMapping(value = "/universities/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public University oneUniversities(@PathVariable("id") int id) {
+    public University oneUniversity(@PathVariable("id") int id) {
         if (id <= universityRepository.count() && id > 0) {
             return universityRepository.findOne(id);
         } else {
@@ -32,13 +32,13 @@ public class UniversityController {
     }
 
     @RequestMapping(value = "/universities/add", method = RequestMethod.POST)
-    public ResponseEntity<University> addUniversities(@RequestBody @Valid @NotNull University university) {
+    public ResponseEntity<University> addUniversity(@RequestBody @Valid @NotNull University university) {
         universityRepository.save(university);
         return ResponseEntity.ok().body(university);
     }
 
     @RequestMapping(value = "/universities/edit/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> editUniversities(@RequestBody @Valid @NotNull University university, @PathVariable("id") int id) {
+    public ResponseEntity<Void> editUniversity(@RequestBody @Valid @NotNull University university, @PathVariable("id") int id) {
         if (universityRepository.findOne(id) == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -50,7 +50,7 @@ public class UniversityController {
 
 
     @RequestMapping(value = "/universities/delete/{id}", method = RequestMethod.DELETE)
-    public RedirectView deleteUniversities(@PathVariable("id") int id) {
+    public RedirectView deleteUniversity(@PathVariable("id") int id) {
         universityRepository.delete(id);
         return new RedirectView("/universities", true);
     }

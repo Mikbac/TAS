@@ -32,4 +32,7 @@ public class VoteServicempl implements VoteService{
         return voteRepository.checkIfExist(id) > 0;
     }
 
+    @Override
+    public Iterable<Vote> votesList(Integer id) { return voteRepository.votesList(id); }
+
 }

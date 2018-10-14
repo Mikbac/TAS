@@ -23,7 +23,7 @@ public class TeacherController {
     }
 
     @RequestMapping(value = "/teachers/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Teacher oneTeachers(@PathVariable("id") int id) {
+    public Teacher oneTeacher(@PathVariable("id") int id) {
         if (id <= teacherRepository.count() && id > 0) {
             return teacherRepository.findOne(id);
         } else {
@@ -32,13 +32,13 @@ public class TeacherController {
     }
 
     @RequestMapping(value = "/teachers/add", method = RequestMethod.POST)
-    public ResponseEntity<Teacher> addTeachers(@RequestBody @Valid @NotNull Teacher teacher) {
+    public ResponseEntity<Teacher> addTeacher(@RequestBody @Valid @NotNull Teacher teacher) {
         teacherRepository.save(teacher);
         return ResponseEntity.ok().body(teacher);
     }
 
     @RequestMapping(value = "/teachers/edit/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> editTeachers(@RequestBody @Valid @NotNull Teacher teacher, @PathVariable("id") int id) {
+    public ResponseEntity<Void> editTeacher(@RequestBody @Valid @NotNull Teacher teacher, @PathVariable("id") int id) {
         if (teacherRepository.findOne(id) == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -50,8 +50,14 @@ public class TeacherController {
 
 
     @RequestMapping(value = "/teachers/delete/{id}", method = RequestMethod.DELETE)
-    public RedirectView deleteTeachers(@PathVariable("id") int id) {
+    public RedirectView deleteTeacher(@PathVariable("id") int id) {
         teacherRepository.delete(id);
         return new RedirectView("/teachers", true);
     }
+
+    @RequestMapping(value = "/teachers/statistics/teachersList/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Teacher> teacherList(@PathVariable("id") Integer id) {
+        return teacherRepository.teachersList(id);
+    }
+
 }

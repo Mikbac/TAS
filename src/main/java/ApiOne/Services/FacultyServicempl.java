@@ -4,7 +4,7 @@ import ApiOne.Entities.*;
 import ApiOne.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class FacultyServicempl implements FacultyService{
+public class FacultyServicempl implements FacultyService {
 
     @Autowired
     private FacultyRepository facultyRepository;
@@ -20,7 +20,7 @@ public class FacultyServicempl implements FacultyService{
     }
 
     @Override
-    public Faculty saveFaculties(Faculty faculty ) {
+    public Faculty saveFaculties(Faculty faculty) {
         return facultyRepository.save(faculty);
     }
 
@@ -34,6 +34,9 @@ public class FacultyServicempl implements FacultyService{
         return facultyRepository.checkIfExist(id) > 0;
     }
 
-
+    @Override
+    public Iterable<Faculty> facultiesList(Integer id) {
+        return facultyRepository.facultiesList(id);
+    }
 
 }

@@ -23,7 +23,7 @@ public class FacultyController {
     }
 
     @RequestMapping(value = "/faculties/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Faculty oneFaculties(@PathVariable("id") int id) {
+    public Faculty oneFaculty(@PathVariable("id") int id) {
         if (id <= facultyRepository.count() && id > 0) {
             return facultyRepository.findOne(id);
         } else {
@@ -32,13 +32,13 @@ public class FacultyController {
     }
 
     @RequestMapping(value = "/faculties/add", method = RequestMethod.POST)
-    public ResponseEntity<Faculty> addFaculties(@RequestBody @Valid @NotNull Faculty faculty) {
+    public ResponseEntity<Faculty> addFaculty(@RequestBody @Valid @NotNull Faculty faculty) {
         facultyRepository.save(faculty);
         return ResponseEntity.ok().body(faculty);
     }
 
     @RequestMapping(value = "/faculties/edit/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> editFaculties(@RequestBody @Valid @NotNull Faculty faculty, @PathVariable("id") int id) {
+    public ResponseEntity<Void> editFaculty(@RequestBody @Valid @NotNull Faculty faculty, @PathVariable("id") int id) {
         if (facultyRepository.findOne(id) == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -50,8 +50,14 @@ public class FacultyController {
 
 
     @RequestMapping(value = "/faculties/delete/{id}", method = RequestMethod.DELETE)
-    public RedirectView deleteFaculties(@PathVariable("id") int id) {
+    public RedirectView deleteFaculty(@PathVariable("id") int id) {
         facultyRepository.delete(id);
         return new RedirectView("/faculties", true);
+    }
+
+
+    @RequestMapping(value = "/faculties/statistics/facultiesList/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Faculty> facultiesList(@PathVariable("id") Integer id) {
+        return facultyRepository.facultiesList(id);
     }
 }

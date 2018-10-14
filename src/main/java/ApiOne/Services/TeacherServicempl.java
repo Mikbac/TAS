@@ -30,4 +30,8 @@ public class TeacherServicempl implements TeacherService{
     public Boolean checkIfExist(Integer id) {
         return teacherRepository.checkIfExist(id) > 0;
     }
+
+    public Iterable<Teacher> teachersList(Integer id) {
+        return teacherRepository.teachersList(id);
+    }
 }

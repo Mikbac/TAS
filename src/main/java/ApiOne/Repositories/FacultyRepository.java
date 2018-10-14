@@ -12,4 +12,7 @@ public interface  FacultyRepository extends CrudRepository<Faculty, Integer>, Pa
     @Query("select count(*) from Faculty p where p.facultyId = ?1")
     Integer checkIfExist(Integer facultyId);
 
+    @Query("select f from Faculty f where f.university.universityId = ?1")
+    Iterable<Faculty> facultiesList(Integer id);
+
 }

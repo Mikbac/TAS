@@ -23,7 +23,7 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/votes/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Vote oneVotes(@PathVariable("id") int id) {
+    public Vote oneVote(@PathVariable("id") int id) {
         if (id <= voteRepository.count() && id > 0) {
             return voteRepository.findOne(id);
         } else {
@@ -32,13 +32,13 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/votes/add", method = RequestMethod.POST)
-    public ResponseEntity<Vote> addVotes(@RequestBody @Valid @NotNull Vote vote) {
+    public ResponseEntity<Vote> addVote(@RequestBody @Valid @NotNull Vote vote) {
         voteRepository.save(vote);
         return ResponseEntity.ok().body(vote);
     }
 
     @RequestMapping(value = "/votes/edit/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> editVotes(@RequestBody @Valid @NotNull Vote vote, @PathVariable("id") int id) {
+    public ResponseEntity<Void> editVote(@RequestBody @Valid @NotNull Vote vote, @PathVariable("id") int id) {
         if (voteRepository.findOne(id) == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -50,8 +50,15 @@ public class VoteController {
 
 
     @RequestMapping(value = "/votes/delete/{id}", method = RequestMethod.DELETE)
-    public RedirectView deleteVotes(@PathVariable("id") int id) {
+    public RedirectView deleteVote(@PathVariable("id") int id) {
         voteRepository.delete(id);
         return new RedirectView("/votes", true);
     }
+
+
+    @RequestMapping(value = "/votes/statistics/votesList/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Vote> votesList(@PathVariable("id") Integer id) {
+            return voteRepository.votesList(id);
+    }
+
 }

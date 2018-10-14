@@ -11,4 +11,6 @@ public interface VoteService {
     void deleteVotes(Integer id);
 
     Boolean checkIfExist(Integer id);
+
+    Iterable<Vote> votesList(Integer id);
 }
