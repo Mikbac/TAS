@@ -10,6 +10,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
 public class VoteController {
@@ -60,5 +61,41 @@ public class VoteController {
     public Iterable<Vote> votesList(@PathVariable("id") Integer id) {
             return voteRepository.votesList(id);
     }
+
+    @RequestMapping(value = "/votes/statistics/attractivenessAverage/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Float attractivenessAverage(@PathVariable("id") Integer id) {
+        return voteRepository.attractivenessAverage(id);
+    }
+
+    @RequestMapping(value = "/votes/statistics/competencyAverage/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Float competencyAverage(@PathVariable("id") Integer id) {
+        return voteRepository.competencyAverage(id);
+    }
+
+    @RequestMapping(value = "/votes/statistics/difficultyAverage/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Float difficultyAverage(@PathVariable("id") Integer id) {
+        return voteRepository.difficultyAverage(id);
+    }
+
+    @RequestMapping(value = "/votes/statistics/friendshipAverage/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Float friendshipAverage(@PathVariable("id") Integer id) {
+        return voteRepository.friendshipAverage(id);
+    }
+
+    @RequestMapping(value = "/votes/statistics/systemAverage/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Float systemAverage(@PathVariable("id") Integer id) {
+        return voteRepository.systemAverage(id);
+    }
+
+    @RequestMapping(value = "/votes/statistics/classesAverage/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Float classesAverage(@PathVariable("id") Integer id) {
+        return voteRepository.classesAverage(id);
+    }
+
+    @RequestMapping(value = "/votes/statistics/commentsList/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List commentsList(@PathVariable("id") Integer id) {
+        return voteRepository.commentsList(id);
+    }
+
 
 }

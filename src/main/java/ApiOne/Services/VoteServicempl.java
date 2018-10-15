@@ -2,6 +2,9 @@ package ApiOne.Services;
 import ApiOne.Entities.*;
 import ApiOne.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
 public class VoteServicempl implements VoteService{
 
     @Autowired
@@ -34,5 +37,26 @@ public class VoteServicempl implements VoteService{
 
     @Override
     public Iterable<Vote> votesList(Integer id) { return voteRepository.votesList(id); }
+
+    @Override
+    public Float attractivenessAverage(Integer id) {return voteRepository.attractivenessAverage(id);}
+
+    @Override
+    public Float competencyAverage(Integer id) {return voteRepository.competencyAverage(id);}
+
+    @Override
+    public Float difficultyAverage(Integer id) {return voteRepository.difficultyAverage(id);}
+
+    @Override
+    public Float friendshipAverage(Integer id) {return voteRepository.friendshipAverage(id);}
+
+    @Override
+    public Float systemAverage(Integer id) {return voteRepository.systemAverage(id);}
+
+    @Override
+    public Float classesAverage(Integer id) {return voteRepository.classesAverage(id);}
+
+    @Override
+    public List commentsList(Integer id) {return voteRepository.commentsList(id);}
 
 }

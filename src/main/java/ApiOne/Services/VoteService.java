@@ -1,5 +1,8 @@
 package ApiOne.Services;
 import ApiOne.Entities.*;
+
+import java.util.List;
+
 public interface VoteService {
 
     Iterable<Vote> listAllVotes();
@@ -13,4 +16,20 @@ public interface VoteService {
     Boolean checkIfExist(Integer id);
 
     Iterable<Vote> votesList(Integer id);
+
+    Float attractivenessAverage(Integer id);
+
+    Float competencyAverage(Integer id);
+
+    Float difficultyAverage(Integer id);
+
+    Float friendshipAverage(Integer id);
+
+    Float systemAverage(Integer id);
+
+    Float classesAverage(Integer id);
+
+    List commentsList(Integer id);
+
+
 }

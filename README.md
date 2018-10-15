@@ -7,7 +7,7 @@ http://localhost:8080/swagger-ui.html#/
 ```
 ## Podstawowe informacje
 
-### Dla wszystkich tabeli:
+### Dla wszystkich tabel:
     GET(all), POST, DELETE, PUT, GET(one)
 
 ### Dla faculty:
@@ -16,6 +16,13 @@ http://localhost:8080/swagger-ui.html#/
     GET(teacherList) - lista prowadzących wydziału, którego podano id
 ### Dla vote:
     GET(voteList) - lista głósów prowadzacego, którego podano id
+    GET(attractivenessAverage) - średnia ocena atrakcyjności zajęć prowadzącego o podanym id
+    GET(competencyAverage) - średnia ocena kompetencji prowadzącego o podanym id
+    GET(difficultyAverage)- średnia ocena łatwości zaliczenia prowadzącego o podanym id
+    GET(friendshipAverage) - średnia ocena przyjazności prowadzącego o podanym id
+    GET(systemAverage) - średnia ocena systemu oceniania prowadzącego o podanym id
+    GET(classesAverage) - średnia ocena odpracowania zajęć prowadzącego o podanym id
+    GET(commentsList) - lista komentarzy prowadzącego o podanym id
 ## university
 
 #### allUniversities
@@ -415,7 +422,7 @@ Example Value
 {
   "attractiveness": 0,
   "classes": 0,
-  "comment": 0,
+  "comment": "string",
   "competency": 0,
   "difficulty": 0,
   "friendship": 0,
@@ -455,7 +462,7 @@ Curl
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: */*' -d '{ \ 
    "attractiveness": 0, \ 
    "classes": 0, \ 
-   "comment": 0, \ 
+   "comment": "string", \ 
    "competency": 0, \ 
    "difficulty": 0, \ 
    "friendship": 0, \ 
@@ -503,4 +510,68 @@ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/sta
 Request URL
 ```
 http://localhost:8080/votes/statistics/votesList/1
+```
+
+#### attractivenessAverage
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/attractivenessAverage/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/attractivenessAverage/1
+```
+#### competencyAverage
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/competencyAverage/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/competencyAverage/1
+```
+#### difficultyAverage
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/difficultyAverage/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/difficultyAverage/1
+```
+#### friendshipAverage
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/friendshipAverage/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/friendshipAverage/1
+```
+#### systemAverage
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/systemAverage/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/systemAverage/1
+```
+#### classesAverage
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/classesAverage/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/classesAverage/1
+```
+#### commentsList
+Curl
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/votes/statistics/commentsList/1'
+```
+Request URL
+```
+http://localhost:8080/votes/statistics/commentsList/1
 ```

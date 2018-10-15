@@ -27,7 +27,7 @@ public class Vote {
     private int classes;
 
     @Column(name = "comment")
-    private int comment;
+    private String comment;
 
     @ManyToOne
     @JoinColumn(name = "teacher", referencedColumnName = "teacherId")
@@ -99,11 +99,11 @@ public class Vote {
 
     public Vote() {}
 
-    public int getComment() {
+    public String getComment() {
         return comment;
     }
 
-    public void setComment(int comment) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 }
