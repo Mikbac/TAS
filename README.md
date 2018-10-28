@@ -1,1 +1,7 @@
-# Technologie aplikacji serwerowych - projekt
+# Front End do projektu z Technologii Aplikacji Serwerowych
+
+##### How to run:
+
+```
+npm start
+```
