@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class VoteController {
 
