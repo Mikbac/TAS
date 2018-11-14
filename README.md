@@ -1,5 +1,15 @@
 # Technologie-aplikacji-serwerowych
 
+#### How to run:
+```
+    mvn install
+```
+```
+    cd target
+```
+```    
+    java -jar artifact-1.0-SNAPSHOT.jar
+```
 ##### Swagger
 
 ```
