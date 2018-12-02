@@ -41,5 +41,11 @@ public class Faculty {
         this.university = university;
     }
 
-     public Faculty() {}
+    public Faculty() {
+    }
+
+    public Faculty(String name, University university) {
+        this.name = name;
+        this.university = university;
+    }
 }
