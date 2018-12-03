@@ -1,9 +1,16 @@
 package ApiOne;
 
+import ApiOne.Entities.Faculty;
+import ApiOne.Entities.University;
+import ApiOne.Entities.Vote;
+import ApiOne.Repositories.FacultyRepository;
+import ApiOne.Repositories.UniversityRepository;
+import ApiOne.Repositories.VoteRepository;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -43,6 +50,26 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
                 .select().apis(RequestHandlerSelectors.basePackage("ApiOne.Controllers"))
                 .build();
     }
+
+    @Bean
+    public CommandLineRunner demoData1(UniversityRepository universityRepository, FacultyRepository facultyRepository) {
+        return args -> {
+
+            universityRepository.save(new University("UAM","Poznan"));
+            universityRepository.save(new University("UAM","Poznan"));
+            universityRepository.save(new University("UAM","Poznan"));
+            universityRepository.save(new University("UAM","Poznan"));
+            universityRepository.save(new University("UAM","Poznan"));
+            universityRepository.save(new University("UAM","Poznan"));
+
+            facultyRepository.save(new Faculty("WMI", universityRepository.findByUniversityId(1)));
+            facultyRepository.save(new Faculty("WMI", universityRepository.findByUniversityId(2)));
+
+        };
+    }
+
+
+
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootWebApplication.class, args);

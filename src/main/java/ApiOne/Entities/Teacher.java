@@ -51,4 +51,10 @@ public class Teacher {
     }
 
     public Teacher() {}
+
+    public Teacher(String name, String surname, Faculty faculty) {
+        this.name = name;
+        this.surname = surname;
+        this.faculty = faculty;
+    }
 }

@@ -106,4 +106,15 @@ public class Vote {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
+    public Vote(int attractiveness, int competency, int difficulty, int friendship, int system, int classes, String comment, Teacher teacher) {
+        this.attractiveness = attractiveness;
+        this.competency = competency;
+        this.difficulty = difficulty;
+        this.friendship = friendship;
+        this.system = system;
+        this.classes = classes;
+        this.comment = comment;
+        this.teacher = teacher;
+    }
 }
