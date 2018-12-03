@@ -1,4 +1,6 @@
-INSERT INTO univeristy_table(name) VALUES('Bratislava');
+INSERT INTO univeristy_table(name, city) VALUES('UAM','Poznan');
+INSERT INTO univeristy_table(name, city) VALUES('PUT','Poznan');
+
 
 
 
