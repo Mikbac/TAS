@@ -1,11 +1,33 @@
-.Header {
-    background: #C48C25;
-    height: 80px;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+.Menu {
+    height: 10vh;
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Neutrif,sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.MenuRight {
+    display: flex;
 }
-.logo {
-    font-size: 30px;
-    margin-top: 20px;
-    margin-left: 10px;
+.MenuRight li {
+    margin-right: 24px;
+}
+.MenuRight li a:hover {
+    color: #841818;
+}
+img {
+    height: 50%;
+    width: auto;
+}
+
+@media only screen and (max-width: 800px) {
+    .Menu {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    .MenuRight li {
+        margin-right: 8px;
+    }
 }

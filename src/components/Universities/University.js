@@ -1,21 +1,40 @@
-import React from 'react';
-import './University.css';
+import React from 'react'
+import axios from 'axios';
+import { Link } from 'react-router-dom'
+import './University.css'
+import university from '../../assets/university.png'
 
 class University extends React.Component {
-   
-    render(){
-   return (
-        <div 
-        className="University col-12 col-md-4 col-lg-3 mx-4 my-4 d-flex text-center justify-content-center"
-        onClick={() => this.props.receiveData(this.props.id)} 
-        style={{cursor:'pointer'}}>
-            <div className="align-self-center">
-                <p className="uniName">{this.props.name}</p>
-                <p className="">{this.props.city}</p>
-            </div>
-        </div>
-    )
-}
-}
 
-export default University;
+    state = {
+        faculties: []
+    }
+
+    componentDidMount(){
+        axios.get(`http://localhost:8080/faculties/statistics/facultiesList/${ this.props.id }`)
+            .then(response => {
+                this.setState({faculties: response.data}); 
+            });
+    }
+
+    render() {
+        const facultiesList = this.state.faculties.map((faculty) =>
+        <li key={ faculty.facultyId } id={ faculty.facultyId } name={ faculty.name }> <Link to={`/teachers/${faculty.facultyId}`}>  { faculty.name } </Link> </li>
+    );
+        return (
+            
+          <div className="University">
+            <div>
+            <div className="UniversityName"> { this.props.name } </div>
+            <div className="UniversityCity"> { this.props.city } </div>
+            <div className="UniversityImg"><img src={ university } alt=""/></div>
+            </div>
+            <ul className="FacultiesList">
+                { facultiesList }
+            </ul>
+          </div>
+        )
+    }
+  }
+
+  export default University

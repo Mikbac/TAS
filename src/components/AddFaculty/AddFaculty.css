@@ -1,0 +1,63 @@
+.EditFaculty {
+    background-color: #841818;
+    width: 100vw;
+    min-height: 80vh;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Neutrif,sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.AddFaculty {
+    display: grid;
+    justify-content: center;
+}
+.AddInput {
+    width: 600px;
+    height: 60px;
+    margin: 30px;
+    font-size: 24px;
+    border-radius: 10px;
+}
+.Input {
+    height: 50px;
+    width: 600px;
+    font-size: 20px;
+    margin: 30px;
+    border-radius: 10px;
+}
+.Button {
+    border-color: #841818;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    font-size: 24px;
+    justify-self: center;
+}
+.Button:hover {
+    background: #17c276;
+    cursor: pointer;
+}
+.DeleteFaculty {
+    display: grid;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .EditFaculty {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+    .AddInput {
+        width: 300px;
+        height: 40px;
+    }
+    .DeleteInput {
+        width: 90vw;
+        height: 40px;
+    }
+
+}

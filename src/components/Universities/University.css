@@ -1,15 +1,53 @@
 .University {
-    height: 200px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 6px;
-    background-color: #D79A28;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100vw;
+    max-width:100%;
+    padding: 0;
+    min-height: 500px;
+    background-color: #841818;
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    font-family: Neutrif,sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
 }
-.University:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: #C48C25;
+.UniversityName {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+}
+.UniversityCity {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 4%;
+}
+.UniversityImg {
+    text-align: center;
+    margin-top: 4%;
+}
+.FacultiesList li a {
+    color: #fff;
+    font-size: 20px;
+    line-height: 2;
+}
+.FacultiesList li a:hover {
+    color: #000;
+}
+.FacultiesList li a:before {
+    content:"•  ";
+}
 
-}
-.uniName {
-    font-size: 1.8em;
+@media only screen and (max-width: 800px) {
+    .University {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .UniversityName {
+        margin-top: 10%;
+    }
+    .FacultiesList li a {
+        text-align: center;
+    }
 }

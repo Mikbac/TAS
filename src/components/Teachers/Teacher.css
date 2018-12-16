@@ -1,47 +1,22 @@
-.Teacher {
-    height: 200px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 6px;
-    background-color: #D79A28;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+.TeachersList {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-.Teacher:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-color: #C48C25;
-
+.TeachersList a {
+    background-color: #841818;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Neutrif,sans-serif;
+    height: 350px;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px;
+    display: grid;
+    justify-content: center;
 }
-.teacherName {
-    font-size: 2.4em;
-}
-.Profile {
-    height: 420px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 6px;
-    background-color: #D79A28;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-.Rate {
-    height: 420px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 6px;
-    background-color: #D79A28;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-.Comment {
-    height: 50px;
-    list-style-type: none;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 6px;
-    background-color: #D79A28;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-.Rates {
-    margin-top: 40px;
-    font-size: 20px;
-}
-.Profile h1 {
-    font-size: 30px;
-}
-.AddComment {
-    font-size: 20px;
+.TeacherImg {
+    margin-right: 40px;
 }

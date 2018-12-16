@@ -1,52 +1,28 @@
-import React from 'react';
+import React from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import Teacher from './Teacher';
+
 class Teachers extends React.Component {
 
     state = {
-        teachers: [],
-        showTeacher: false,
-        teacherClicked: undefined
+        teachers: []
     }
 
     componentDidMount(){
-        axios.get('https://api.myjson.com/bins/c1sgk')
+        axios.get(`http://localhost:8080/teachers/statistics/teachersList/${ this.props.match.params.id }`)
             .then(response => {
-                const teachers = response.data;
-                this.setState({teachers: response.data});
+                this.setState({teachers: response.data}); 
             });
     }
 
-    receiveData = (teacherClicked) => {
-        this.setState({showTeacher: true});
-        this.setState({teacherClicked: teacherClicked});
-
-        this.props.passData(teacherClicked);
-    }
-
-
-
     render() {
+        const teachersList = this.state.teachers.map((teacher) =>
+             <Link key={ teacher.teacherId } to={`/teacher/${teacher.teacherId}`}> <Teacher key={ teacher.teacherId } id={ teacher.teacherId } name={ teacher.name } surname={ teacher.surname }> </Teacher> </Link>
+        );
 
-        const teachers = this.state.teachers.map(teacher =>{
-            if(this.props.facId === teacher.faculty.facultyId){
-                return (
-                    <Teacher
-                    id={teacher.teacherId} 
-                    name={teacher.name} 
-                    surname={teacher.surname} 
-                    facID={teacher.faculty.facultyId}
-                    receiveData={this.receiveData}/>
-                )
-            }
-        });
-    
-      return (
-        <div className="Teachers row justify-content-center">
-            {teachers}
-        </div>
-      )
+        return <div className="TeachersList"> { teachersList } </div>;
     }
   }
 
-  export default Teachers;
+  export default Teachers
