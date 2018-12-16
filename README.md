@@ -2,12 +2,12 @@
 
 How to run: 
 
-### `git clone`
+ `git clone`
 
-### `cd TAS`
+ `cd TAS`
 
-### `git checkout front`
+`git checkout front`
 
-### `npm install`
+ `npm install`
 
-### `npm start`
+ `npm start`
